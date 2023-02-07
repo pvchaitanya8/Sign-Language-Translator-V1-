@@ -5,7 +5,6 @@ In this project, machine learning methods will be used to create a sign language
 - [ ] Python 3.6 or higher
 - [ ] TensorFlow
 - [ ] Media pipeline
-- [ ] NumPy
 - [ ] OpenCV
 - [ ] NumPy
 
