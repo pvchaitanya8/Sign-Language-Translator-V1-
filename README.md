@@ -1,12 +1,13 @@
 # Sign Language Translator V1
-In this project, machine learning methods will be used to create a sign language translator. This project transforms sign language movements into english text using the input from the device which was enabled with a camera. TensorFlow framework and the Python programming language are used to build the project.
+In this project, machine learning methods will be used to create a sign language translator. This project transforms sign language movements into english text using the input from the device which was enabled with a camera. TensorFlow framework and the Python programming language are used to build the project. 
 
 ## Requirements
 - [ ] Python 3.6 or higher
-- [ ] TensorFlow 2.x
+- [ ] TensorFlow
 - [ ] Media pipeline
 - [ ] NumPy
 - [ ] OpenCV
+- [ ] NumPy
 
 
 ## Dataset
