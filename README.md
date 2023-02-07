@@ -19,3 +19,5 @@ The project uses a Convolutional Neural Network (CNN) model to classify the sign
 ## Contribution
 Contributions are welcome! If you want to contribute to the project, please create a pull request with a detailed explanation of the changes.
 
+> We made this project as a team and collected data sets from various sources and analyzed it and generated data set by our hands as input and some sample data set were given too in this GitHub repository. Our team consists of [suryakala](https://www.youtube.com/feed/subscriptions)
+
