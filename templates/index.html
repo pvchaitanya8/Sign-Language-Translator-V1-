@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hand Gesture Recognition</title>
+    <style>
+        body {
+            background-image: url('static/back_ground.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            color: #F6F1F1;
+            padding: 20px;
+            margin: 0;
+        }
+        .main {
+            height: 23vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            text-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 1em black, 0 0 0.2em rgb(37, 36, 36);
+        }
+        h3 {
+            text-align: center;
+            color: #F1FAEE;
+            font-size: 3rem;
+            transition: all 1.5s;
+        }
+        h3:hover {
+            text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 1em rgb(0, 0, 0), 0 0 0.2em rgb(0, 0, 0);
+            transform: scale(1.1);
+            transition: all 1s;
+        }
+        .roller {
+            height: 2.9rem;
+            line-height: 4rem;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #aac4ff;
+        }
+        #video-feed {
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            width: 800px; 
+            height: 600px;
+        }
+        #spare-time {
+            font-size: 1rem;
+            font-style: italic;
+            letter-spacing: 1rem;
+            margin-top: 0;
+            color: #d7deee;
+        }
+        .roller #rolltext {
+            position: absolute;
+            top: 0;
+            animation: slide 5s infinite;
+        }
+        @keyframes slide {
+            0%, 25% {
+                top: 0;
+            }
+            50% {
+                top: -8rem;
+            }
+            72.5% {
+                top: -12.25rem;
+            }
+        }
+        @media screen and (max-width: 600px) {
+            h3 {
+                text-align: center;
+                text-transform: uppercase;
+                color: #F1FAEE;
+                text-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 1em black, 0 0 0.2em rgb(37, 36, 36);
+                font-size: 2.125rem;
+            }
+            .roller {
+                height: 2.6rem;
+                line-height: 2.125rem;
+            }
+            #spare-time {
+                font-size: 1rem;
+                letter-spacing: 0.1rem;
+            }
+            .roller #rolltext {
+                animation: slide-mob 7s infinite;
+            }
+            @keyframes slide-mob {
+                0%, 25% {
+                    top: 0;
+                }
+                50% {
+                    top: -4.25rem;
+                }
+                72.5% {
+                    top: -6.375rem;
+                }
+            }
+        }
+        .glass-background {
+            display: flex;
+            flex-direction: column;
+            background-color: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+            padding: 4px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .contribution-row {
+            display: flex;
+            justify-content: center;
+        }
+        .contribution-row span {
+            margin: 0 100px;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .video-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 300px; 
+            height: 300px; 
+            margin: 0 auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        h2 {
+            text-align: center;
+            letter-spacing: 3px;
+            color: white;
+            transition: all 1s;
+            text-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 1em black, 0 0 0.2em rgb(37, 36, 36);
+        }
+        h2:hover {
+            backdrop-filter: blur(5px);
+            text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 1em rgb(255, 255, 255), 0 0 0.2em rgb(0, 0, 0);
+            transition: all 1s;
+        }
+        .video-shadow {
+            position: relative;
+            width: 80%;
+            max-width: 600px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            transition: box-shadow 0.3s;
+        }
+        .video-shadow:hover {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+        video {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h3>Sign Language Translator
+            <div class="roller">
+                <span id="rolltext">Breaking<br/>
+                    the Sound<br/>
+                    Barriers<br/>
+                    <span id="spare-time">A Bridge!</span><br/>
+                </span>
+            </div>
+        </h3>
+    </div>
+    <br><br><br><br><br><br><br><br><br>
+    <div class="container">
+        <div class="video-container">
+            <img id="video-feed" src="" alt="Video Feed" width="800" height="600"> 
+        </div>
+        <div>
+            <p id="gesture-label"></p>
+        </div>
+    </div>
+    <script>
+        const videoFeed = document.getElementById('video-feed');
+        const gestureLabel = document.getElementById('gesture-label');
+        const updateVideoFeed = () => {
+            videoFeed.src = '/video_feed';
+            requestAnimationFrame(updateVideoFeed);
+        };
+        updateVideoFeed();
+    </script>
+    <br><br><br><br><br><br><br><br><br>
+    <h2>Contact us</h2>
+    <div class="glass-background">
+        <div class="contribution-row">
+            <span>
+                <p><a style="text-decoration: none" href="mailto:20P31A0548@acet.ac.in">P.V. Chaitanya</a></p>
+            </span>
+            <span>
+                <p><a style="text-decoration: none" href="mailto:20P31A0538@acet.ac.in">N. SuryaKala</a></p>
+            </span>
+            <span>
+                <p><a style="text-decoration: none" href="mailto:20P31A0546@aec.edu.in">P. Gowri Alekya</a></p>
+            </span>
+        </div>
+    </div>
+</body>
+</html>
