@@ -18,8 +18,8 @@ python app.py
 ```
 
 ## Output:
-![Screenshot 2023-09-07 170206](https://github.com/pvchaitanya8/Sign-Language-Translator-V1-/assets/93573686/6d2dd528-85cc-4846-8b03-1c0586e6682c)
 ![Screenshot 2023-09-07 170241](https://github.com/pvchaitanya8/Sign-Language-Translator-V1-/assets/93573686/1d223010-8616-49b8-bdbe-bc92c1224e32)
+![Screenshot 2023-09-07 170206](https://github.com/pvchaitanya8/Sign-Language-Translator-V1-/assets/93573686/6d2dd528-85cc-4846-8b03-1c0586e6682c)
 ![Screenshot 2023-09-07 201710](https://github.com/pvchaitanya8/Sign-Language-Translator-V1-/assets/93573686/42308c91-f63c-4e82-b268-7af5a4be9801)
 
 ## Dataset
