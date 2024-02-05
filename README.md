@@ -23,7 +23,7 @@ python app.py
 ![Screenshot 2023-09-07 201710](https://github.com/pvchaitanya8/Sign-Language-Translator-V1-/assets/93573686/42308c91-f63c-4e82-b268-7af5a4be9801)
 
 ## Dataset
-The project uses a custom dataset collected from various sources and personally took from my hand gestures. The dataset contains a total of **1000+** images for each gesture in the sign language alphabet and numerical digits. The data has been pre-processed and augmented to improve the model's performance. The guidelines mentioned in this [image](https://drive.google.com/file/d/1GNe96f-HU6AiwAhRudMFzeC1Fnyrh5aW/view?usp=sharing) were used as reference sign language to train the model.
+The project uses a custom dataset collected from various sources and personally took from my hand gestures. The dataset contains a total of **1000+** images for each gesture in the sign language alphabet and numerical digits. The data has been pre-processed and augmented to improve the model's performance.
 
 ## Model
 The project uses a Convolutional Neural Network (CNN) model to classify the sign language gestures. The model is trained using the collected dataset, and the weights are saved after training.
